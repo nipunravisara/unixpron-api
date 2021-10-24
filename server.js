@@ -1,7 +1,7 @@
-const express = require("express");
-const { ApolloServer } = require("apollo-server-express");
-const resolvers = require("./resolvers");
-const typeDefs = require("./types");
+import express from "express";
+import { ApolloServer } from "apollo-server-express";
+import resolvers from "./resolvers/index.js";
+import typeDefs from "./types/index.js";
 
 async function startServer() {
   const app = express();
@@ -9,7 +9,6 @@ async function startServer() {
 
   await apolloServer.start();
   apolloServer.applyMiddleware({ app });
-  app.use((req, res) => res.send("Hello express."));
 
   app.listen({ port: 4000 }, () =>
     console.log(

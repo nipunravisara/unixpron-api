@@ -1,7 +1,9 @@
+import rices from "./riceResolver.js";
+
 const resolvers = {
   Query: {
-    hello: () => "Hello world!",
+    rices,
   },
 };
 
-module.exports = resolvers;
+export default resolvers;
